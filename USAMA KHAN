@@ -1,0 +1,22 @@
+
+import static javafx.beans.binding.Bindings.and;
+import static sun.misc.Signal.raise;
+
+class EvenInteger:
+    def __init__(self, number):
+        if isinstance(number, int) and number % 2 == 0:
+            self.number = number
+        else:
+            raise ValueError("Input must be an even integer.")
+    
+    def get_value(self):
+        return self.number
+
+# Example usage:
+try:
+    even_int = EvenInteger(4)  # Valid input
+    print("Even integer:", even_int.get_value())
+    
+    even_int2 = EvenInteger(3)  # Invalid input (will raise an error)
+except ValueError as e:
+    print(e)
